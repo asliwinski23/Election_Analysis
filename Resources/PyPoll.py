@@ -12,7 +12,7 @@ file_to_save.close()
 
 # Read polling csv
 df_polling_results = pd.read_csv("election_results.csv")
-print(df_polling_results.head())
+# print(df_polling_results.head())
 
 # Analysis to run:
 # Total number of votes cast
@@ -21,7 +21,7 @@ total_votes = 0
 for ID in df_polling_results["Ballot ID"]:
     total_votes += 1
 
-print(total_votes)
+# print(total_votes)
 
 # Wrote total number of votes to text file
 
@@ -38,8 +38,8 @@ for name in df_polling_results["Candidate"]:
         candidate_votes[name] = 0
     candidate_votes[name] += 1
 
-print(candidate_options)
-print(candidate_votes)
+# print(candidate_options)
+# print(candidate_votes)
 
   # Percentage of votes each candidate won
 winning_candidate = ""
@@ -57,7 +57,7 @@ for name in candidate_votes:
         winning_percentage = vote_percentage
         winning_candidate = name
     
-    print(f"{name}: {vote_percentage:.1f}% ({votes:,})\n")
+    # print(f"{name}: {vote_percentage:.1f}% ({votes:,})\n")
 
 winning_candidate_summary = (
     f"-------------------------\n"
@@ -67,3 +67,11 @@ winning_candidate_summary = (
     f"-------------------------\n")
 
 print(winning_candidate_summary)
+# with open(file_to_save, "w") as txt_file:
+#     file_to_save.write(winning_candidate_summary)
+# Create a filename variable to a direct or indirect path to the file.
+file_to_save = open(r"C:\Users\candy\OneDrive\Documents\Bootcamp\Module 3\Election Analysis\Election_Analysis\Analysis\election_analysis.txt", "w")
+# Write inside file
+file_to_save.write(winning_candidate_summary)
+# Close the file
+file_to_save.close()  
