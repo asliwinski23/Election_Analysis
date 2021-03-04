@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 # Create a filename variable to a direct or indirect path to the file.
-file_to_save = open(r"C:\Users\candy\OneDrive\Documents\Bootcamp\Module 3\Election Analysis\Analysis\election_analysis.txt", "w")
+file_to_save = open(r"C:\Users\candy\OneDrive\Documents\Bootcamp\Module 3\Election Analysis\Election_Analysis\Analysis\election_analysis.txt", "w")
 # Write inside file
 file_to_save.write("Counties in the Election\n-------------------------\nArapahoe\nDenver\nJefferson")
 # Close the file
