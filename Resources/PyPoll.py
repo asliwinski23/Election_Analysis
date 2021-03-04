@@ -38,11 +38,32 @@ for name in df_polling_results["Candidate"]:
         candidate_votes[name] = 0
     candidate_votes[name] += 1
 
-
 print(candidate_options)
 print(candidate_votes)
 
+  # Percentage of votes each candidate won
+winning_candidate = ""
+winning_count = 0
+winning_percentage = 0
 
-# Percentage of votes each candidate won
+for name in candidate_votes:
+    votes = candidate_votes[name]
+    vote_percentage = (votes / total_votes) * 100
+    # print(f"{name}: received {vote_percentage:.2f}% of the vote.")
 
 # The winner of the election based on popular vote
+    if candidate_votes[name] > winning_count and vote_percentage > winning_percentage:
+        winning_count = candidate_votes[name]
+        winning_percentage = vote_percentage
+        winning_candidate = name
+    
+    print(f"{name}: {vote_percentage:.1f}% ({votes:,})\n")
+
+winning_candidate_summary = (
+    f"-------------------------\n"
+    f"Winner: {winning_candidate}\n"
+    f"Winning Vote Count: {winning_count:,}\n"
+    f"Winning Percentage: {winning_percentage:.1f}%\n"
+    f"-------------------------\n")
+
+print(winning_candidate_summary)
