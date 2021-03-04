@@ -16,10 +16,32 @@ print(df_polling_results.head())
 
 # Analysis to run:
 # Total number of votes cast
+total_votes = 0
+
+for ID in df_polling_results["Ballot ID"]:
+    total_votes += 1
+
+print(total_votes)
+
+# Wrote total number of votes to text file
 
 # A complete list of candidates who received votes
+candidate_options = []
 
-# Total number of votes each candidate received
+#Total number of votes each candidate received
+candidate_votes = {}
+
+for name in df_polling_results["Candidate"]:
+    if name not in candidate_options:
+        candidate_options.append(name)
+
+        candidate_votes[name] = 0
+    candidate_votes[name] += 1
+
+
+print(candidate_options)
+print(candidate_votes)
+
 
 # Percentage of votes each candidate won
 
