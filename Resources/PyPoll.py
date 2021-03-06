@@ -39,7 +39,7 @@ for name in df_polling_results["Candidate"]:
     candidate_votes[name] += 1
 
 # print(candidate_options)
-# print(candidate_votes)
+print(candidate_votes)
 
   # Percentage of votes each candidate won
 winning_candidate = ""
@@ -59,6 +59,12 @@ for name in candidate_votes:
     
     # print(f"{name}: {vote_percentage:.1f}% ({votes:,})\n")
 
+election_summary = (
+    f"Election Results\n"
+    f"-------------------------\n"
+    f"Total Votes: {total_votes:,}\n"
+    f"-------------------------\n")
+
 winning_candidate_summary = (
     f"-------------------------\n"
     f"Winner: {winning_candidate}\n"
@@ -66,12 +72,19 @@ winning_candidate_summary = (
     f"Winning Percentage: {winning_percentage:.1f}%\n"
     f"-------------------------\n")
 
-print(winning_candidate_summary)
+# print(election_summary)
+# print(winning_candidate_summary)
 # with open(file_to_save, "w") as txt_file:
 #     file_to_save.write(winning_candidate_summary)
 # Create a filename variable to a direct or indirect path to the file.
 file_to_save = open(r"C:\Users\candy\OneDrive\Documents\Bootcamp\Module 3\Election Analysis\Election_Analysis\Analysis\election_analysis.txt", "w")
 # Write inside file
+file_to_save.write(election_summary)
+for name in candidate_votes:
+    votes = candidate_votes[name]
+    vote_percentage = (votes / total_votes) * 100
+    candidate_results = (f"{name}: {vote_percentage:.1f}% ({votes:,})\n")
+    file_to_save.write(candidate_results)
 file_to_save.write(winning_candidate_summary)
 # Close the file
 file_to_save.close()  
